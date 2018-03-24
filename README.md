@@ -8,25 +8,27 @@ jquery-3.3.1.min.js
 ```
 ### HTML
 ```html
-<div class="pages viewport"> <!-- the DOM-parent with a perspective -->
-	
-	<!-- Last Page (outback) -->
-	<div class="page outback"> <!-- .page is a 3d-object -->
-		<div class="content front <your-css>"></div> <!-- the front face -->
-		<div class="content back <your-css>"></div> <!-- the back face -->
-	</div>
+<div class="book">
+	<div class="pages viewport"> <!-- the DOM-parent with a perspective -->
+		
+		<!-- Last Page (outback) -->
+		<div class="page outback"> <!-- .page is a 3d-object -->
+			<div class="content front <your-css>"></div> <!-- the front face -->
+			<div class="content back <your-css>"></div> <!-- the back face -->
+		</div>
 
-	<div class="page"> <!-- .page is a 3d-object -->
-		<div class="content front <your-css>"></div> <!-- the front face -->
-		<div class="content back <your-css>"></div> <!-- the back face -->
-	</div>
+		<div class="page"> <!-- .page is a 3d-object -->
+			<div class="content front <your-css>"></div> <!-- the front face -->
+			<div class="content back <your-css>"></div> <!-- the back face -->
+		</div>
 
-	<!-- First Page (outfront) -->
-	<div class="page outfront"> <!-- .page is a 3d-object -->
-		<div class="content front <your-css>"></div> <!-- the front face -->
-		<div class="content back <your-css>"></div> <!-- the back face -->
-	</div>
+		<!-- First Page (outfront) -->
+		<div class="page outfront"> <!-- .page is a 3d-object -->
+			<div class="content front <your-css>"></div> <!-- the front face -->
+			<div class="content back <your-css>"></div> <!-- the back face -->
+		</div>
 
+	</div>
 </div>
 ```
 
