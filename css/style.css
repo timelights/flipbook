@@ -1,0 +1,20 @@
+@font-face {font-family: "Roboto"; src: url("../fonts/Roboto-Regular.ttf"); }
+@font-face {font-family: "Roboto Condensed"; src: url("../fonts/RobotoCondensed-Regular.ttf"); }
+@font-face {font-family: "Roboto Slab"; src: url("../fonts/RobotoSlab-Regular.ttf"); }
+@font-face {font-family: "Roboto Mono"; src: url("../fonts/RobotoMono-Regular.ttf"); }
+*, html, body {
+	font-family: "Roboto", "Arial";
+}
+html, body {
+	margin:0;
+	padding:0;
+	width:100%;
+	height:100%;
+	overflow: hidden;
+}
+h1 {
+	font-family: "Roboto Condensed";
+}
+p {
+	word-wrap: break-word;
+}
