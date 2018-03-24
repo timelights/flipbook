@@ -2,6 +2,10 @@
 A simple demo of flip animation for book pages. [See demo](https://timelights.github.io/flipbook/)\
 See also a simple [CSS 3D Flip Card](https://github.com/timelights/flip).
 
+## Prerequisites
+```
+jquery-3.3.1.min.js
+```
 ### HTML
 ```html
 <div class="pages viewport"> <!-- the DOM-parent with a perspective -->
@@ -101,4 +105,80 @@ a flat 3d object
 
 /* content (front/back) customizations */
 .your-css { background-image: url(...) }
+```
+
+### JavaScript
+```javascript
+$(document).ready(()=>{
+
+	var toggleCenter = true
+	// Clicking the first page will toggle auto center the book
+	$('.outfront').on('click',()=>{
+		toggleCenter = !toggleCenter
+		switch (toggleCenter) {
+			case false:
+				$('.pages').css('transform','translateX(0)')
+				break
+			case true:
+				$('.pages').css('transform','translateX(-50%)')
+				break
+		}
+	})
+	// Clicking the last page will toggle auto center the book
+	$('.outback').on('click',()=>{
+		toggleCenter = !toggleCenter
+		switch (toggleCenter) {
+			case false:
+				$('.pages').css('transform','translateX(0)')
+				break
+			case true:
+				$('.pages').css('transform','translateX(50%)')
+				break
+		}
+	})
+
+	/* 
+	! Important for a flipbook 
+		> manipulates turning pages
+		> manipulates z-indexes
+	*/
+	$('.page').each((i,page)=>{
+
+		var toggleDegree = true
+
+		// each click on page controls their properties
+		$(page).on('click',()=>{
+
+			// adjusts z-indexes of page(s) in the left-page
+			$(page).css('z-index',$('.page').length - i)
+
+			// this page has been turned!
+			toggleDegree = !toggleDegree
+
+			// determines what click event should do based on whether a page has been turned or not
+			switch (toggleDegree) {
+
+				case false: // page is not yet turned!
+					// bring page as left-page
+					$(page).css('transform','rotateY(-180deg)')
+					break
+
+				case true: // pages has already turned!
+					// bring page as right-page
+					$(page).css('transform','rotateY(0deg)')
+
+					// immediate change of z-index (sometimes user just suddenly wants to turn the next page before the last page is done with its own animation)
+					$(page).prev('.page').css('z-index','auto') 
+
+					// normal return of z-index property after animation
+					setTimeout(()=>{
+						$(page).css('z-index','auto')
+					}, 500)
+					break
+			}
+
+		})
+	})
+
+})
 ```
