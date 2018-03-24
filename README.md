@@ -27,7 +27,7 @@ See also a simple [CSS 3D Flip Card](https://github.com/timelights/flip).
 ```
 
 What is ```<your-css>```?
-```
+```css
 /* your css */
 .custom-content {
 	background-image: url(...)
